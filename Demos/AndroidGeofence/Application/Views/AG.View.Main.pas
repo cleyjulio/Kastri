@@ -136,8 +136,8 @@ end;
 procedure TMainView.GeofenceShowBackgroundPermissionsHandler(Sender: TObject; const ACompletionHandler: TProc);
 begin
   TDialogServiceAsync.ShowMessage(
-    'Geofence demo requires background location permissions in order to work. ' +
-      'When prompted, please tap "Allow in Settings", then select the "Allow all the time" option',
+    'ttivos® Campo requer permissões de localização em segundo plano para funcionar. ' +
+      'Quando solicitado, toque em "Permitir em Configurações" e selecione a opção "Permitir o tempo todo"',
     procedure(const AResult: TModalResult)
     begin
       ACompletionHandler;
@@ -193,11 +193,24 @@ end;
 procedure TMainView.AddRegions;
 begin
   // Make sure the first parameter in each region is a unique value
-  FGeofence.Regions.AddRegion('Embarcadero', 30.3976551, -97.7298056, cGeofenceRadius); // 1, 10801 N Mopac Expy #100, Austin, TX 78759, United States
-  FGeofence.Regions.AddRegion('Google', 37.4220656, -122.0840897, cGeofenceRadius); // 1600 Amphitheatre Pkwy, Mountain View, CA 94043, United States
-  FGeofence.Regions.AddRegion('Apple', 37.3318641, -122.0302537, cGeofenceRadius); // 1 Infinite Loop, Cupertino, CA 95014, USA
-  FGeofence.Regions.AddRegion('Microsoft', 47.6422308, -122.1369332, cGeofenceRadius); // One Microsoft Way, Redmond, WA 98052, United States
-  FGeofence.Regions.AddRegion('Home', -34.887860, 138.585340, cGeofenceRadius); // Redact this before committing // Your address
+//  FGeofence.Regions.AddRegion('Embarcadero', 30.3976551, -97.7298056, cGeofenceRadius); // 1, 10801 N Mopac Expy #100, Austin, TX 78759, United States
+//  FGeofence.Regions.AddRegion('Google', 37.4220656, -122.0840897, cGeofenceRadius); // 1600 Amphitheatre Pkwy, Mountain View, CA 94043, United States
+//  FGeofence.Regions.AddRegion('Apple', 37.3318641, -122.0302537, cGeofenceRadius); // 1 Infinite Loop, Cupertino, CA 95014, USA
+//  FGeofence.Regions.AddRegion('Microsoft', 47.6422308, -122.1369332, cGeofenceRadius); // One Microsoft Way, Redmond, WA 98052, United States
+//  FGeofence.Regions.AddRegion('Home', -34.887860, 138.585340, cGeofenceRadius); // Redact this before committing // Your address
+
+
+//  TMapttivos.AddRegion(LocationSensor, -22.218083711232325, -54.81320755646517, 30, 'Esquina_Presidente_Vargas');
+//  TMapttivos.AddRegion(LocationSensor, -22.218105485291904, -54.81369010530414, 5, 'Frente_Predio');
+//  TMapttivos.AddRegion(LocationSensor, -22.21822243, -54.8133471, 2, 'Dentro__Escritorio');
+//  TMapttivos.AddRegion(LocationSensor, -22.215794129117445, -54.84023010264094, 500, 'Casa');
+
+  FGeofence.Regions.AddRegion('EsquinaPV', -22.218083711232325, -54.81320755646517, 30);
+  FGeofence.Regions.AddRegion('Frente Prédio', -22.218105485291904, -54.81369010530414, 5);
+  FGeofence.Regions.AddRegion('Dentro Escritório', -22.21822243, -54.8133471, 2);
+  FGeofence.Regions.AddRegion('Casa', -22.215794129117445, -54.84023010264094, 500);
+
+
 end;
 
 end.
