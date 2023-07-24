@@ -97,12 +97,12 @@ end;
 
 procedure TMainView.GeofenceActionCompleteHandler(Sender: TObject; const AAction, AResult: Integer; const AErrorMessage: string);
 begin
-  Memo1.Lines.Add(Format('Action: %d, Result: %d, Message: %s', [AAction, AResult, AErrorMessage]));
+  Memo1.Lines.Add(Format('Ação: %d, Resultado: %d, Menssagem: %s', [AAction, AResult, AErrorMessage]));
   if (AAction = 2) and FNeedsRestart then
   begin
     if AResult = 0 then
     begin
-      Memo1.Lines.Add('Restarting..');
+      Memo1.Lines.Add('Reiniciando..');
       FGeofence.Start;
     end
     else
@@ -130,7 +130,7 @@ end;
 
 procedure TMainView.GeofenceTransitionHandler(Sender: TObject; const ATransition: TGeofenceTransition; const ARegionIds: TArray<string>);
 begin
-  Memo1.Lines.Add(Format('Transition recieved - %s: %s', [cGeofenceTransitionCaptions[ATransition], string.Join(', ', ARegionIds)]));
+  Memo1.Lines.Add(Format('Localização Alterada - %s: %s', [cGeofenceTransitionCaptions[ATransition], string.Join(', ', ARegionIds)]));
 end;
 
 procedure TMainView.GeofenceShowBackgroundPermissionsHandler(Sender: TObject; const ACompletionHandler: TProc);
@@ -206,8 +206,8 @@ begin
 //  TMapttivos.AddRegion(LocationSensor, -22.215794129117445, -54.84023010264094, 500, 'Casa');
 
   FGeofence.Regions.AddRegion('EsquinaPV', -22.218083711232325, -54.81320755646517, 30);
-  FGeofence.Regions.AddRegion('Frente Prédio', -22.218105485291904, -54.81369010530414, 5);
-  FGeofence.Regions.AddRegion('Dentro Escritório', -22.21822243, -54.8133471, 2);
+  FGeofence.Regions.AddRegion('FrentePrédio', -22.218105485291904, -54.81369010530414, 5);
+  FGeofence.Regions.AddRegion('DentroEscritório', -22.21822243, -54.8133471, 2);
   FGeofence.Regions.AddRegion('Casa', -22.215794129117445, -54.84023010264094, 500);
 
 
